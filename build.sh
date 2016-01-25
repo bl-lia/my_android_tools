@@ -5,6 +5,11 @@ usage_exit() {
   exit 1
 }
 
+if [ "$1" = "" ]
+then
+  usage_exit
+fi
+
 while getopts b:f:r:t:h OPT
 do
   case $OPT in
@@ -18,7 +23,7 @@ do
       ;;
     h) usage_exit
       ;;
-    \?) usage_exit
+    *|\?) usage_exit
       ;;
   esac
 done
